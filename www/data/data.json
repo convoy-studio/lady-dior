@@ -1,0 +1,56 @@
+{
+	"content": {
+		"mytext": "some global text"
+	},
+
+	"menu": [
+		{
+			"id": "home",
+			"name": "Home",
+			"url": ""
+		},{
+			"id": "work-of-art",
+			"name": "Work of Art",
+			"url": "/work-of-art"
+		},{
+			"id": "architecture",
+			"name": "Architecture",
+			"url": "/architecture"
+		},{
+			"id": "quintessentially",
+			"name": "Quintessentially Dior",
+			"url": "/quintessentially"
+		},{
+			"id": "eclectic",
+			"name": "Eclectic",
+			"url": "/eclectic"
+		},{
+			"id": "stylish",
+			"name": "Stylish",
+			"url": "/stylish"
+		}
+	],
+
+	"default-route": "",
+
+	"routing": {
+		"/": {
+			"title": "home page"
+		},
+		"work-of-art": {
+			"title": "work-of-art page"
+		},
+		"architecture": {
+			"title": "architecture page"
+        },
+        "quintessentially": {
+        	"title": "quintessentially page"
+        },
+        "eclectic": {
+        	"title": "eclectic page"
+        },
+        "stylish": {
+        	"title": "stylish page"
+        }
+	}
+}
