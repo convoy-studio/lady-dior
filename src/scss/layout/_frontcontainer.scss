@@ -1,7 +1,77 @@
 #front-container {
 	position: fixed;
 	z-index: 20;
+	width: 100%;
 	a {
 		color: $black;
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+	#menu {
+		width: 90%;
+		position: absolute;
+		li {
+			width: 20%;
+			@include inline-block;
+			text-align: center;
+			a {
+				position: relative;
+				width: 100%;
+			}
+			.latin-num {
+				@include opacity(1);
+				@include anim(.6s, .0s, $easeOutExpo, translateY(0px), 50%, 100%);
+			}
+			.title {
+				margin-top: 8px;
+				@include opacity(1);
+				@include anim(.6s, .0s, $easeOutExpo, translateY(0px), 50%, 100%);	
+			}
+			.line {
+				width: 100%;
+				height: 1px;
+				background-color: black;
+				position: absolute;
+				display: inline-table;
+				bottom: 7px;
+				left: 0;
+	
+				@include opacity(0);
+				@include simpleAnim(.6s, .0s, $easeOutExpo);	
+			}
+
+			&.enable {
+
+				.latin-num {
+					@include opacity(1);
+					@include anim(.6s, .0s, $easeOutExpo, translateY(0px), 50%, 100%);
+				}
+				.title {
+					@include opacity(0);
+					@include anim(.6s, .0s, $easeOutExpo, translateY(4px), 50%, 100%);	
+				}
+				.line {
+					@include opacity(1);
+					@include simpleAnim(.6s, .0s, $easeOutSine);
+				}
+			}
+
+			&.disable {
+				
+				.latin-num {
+					@include opacity(0);
+					@include anim(.6s, .0s, $easeOutExpo, translateY(-4px), 50%, 100%);
+				}
+				.title {
+					@include opacity(0);
+					@include anim(.6s, .0s, $easeOutExpo, translateY(4px), 50%, 100%);	
+				}
+				.line {
+					@include opacity(0.1);
+					@include simpleAnim(.6s, .0s, $easeOutSine);
+				}
+				
+			}
+		}
 	}
 }

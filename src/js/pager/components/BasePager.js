@@ -76,6 +76,11 @@ export default class BasePager extends React.Component {
 			React.unmountComponentAtNode(domToRemove)
 		}
 	}
+	resize() {
+		if(this.components['new-component'] != undefined) {
+			this.components['new-component'].resize()
+		}
+	}
 	componentWillUnmount() {
 		PagerStore.off(PagerConstants.PAGE_TRANSITION_IN, this.willPageTransitionIn)
 		PagerStore.off(PagerConstants.PAGE_TRANSITION_OUT, this.willPageTransitionOut)

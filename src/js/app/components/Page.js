@@ -7,11 +7,9 @@ import dom from 'domquery'
 export default class Page extends BasePage {
 	constructor(props) {
 		super(props)
-		this.resize = this.resize.bind(this)
 		this.animate = this.animate.bind(this)
 	}
 	componentWillMount() {
-		AppStore.on(AppConstants.WINDOW_RESIZE, this.resize)
 		super.componentWillMount()
 	}
 	componentDidMount() {

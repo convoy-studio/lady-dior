@@ -5,29 +5,30 @@
 
 	"menu": [
 		{
-			"id": "home",
-			"name": "Home",
-			"url": ""
-		},{
 			"id": "work-of-art",
 			"name": "Work of Art",
-			"url": "/work-of-art"
+			"url": "/work-of-art",
+			"latin-num": "I"
 		},{
 			"id": "architecture",
 			"name": "Architecture",
-			"url": "/architecture"
+			"url": "/architecture",
+			"latin-num": "II"
 		},{
 			"id": "quintessentially",
 			"name": "Quintessentially Dior",
-			"url": "/quintessentially"
+			"url": "/quintessentially",
+			"latin-num": "III"
 		},{
 			"id": "eclectic",
 			"name": "Eclectic",
-			"url": "/eclectic"
+			"url": "/eclectic",
+			"latin-num": "IV"
 		},{
 			"id": "stylish",
 			"name": "Stylish",
-			"url": "/stylish"
+			"url": "/stylish",
+			"latin-num": "V"
 		}
 	],
 

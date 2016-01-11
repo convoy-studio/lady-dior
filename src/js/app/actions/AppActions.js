@@ -16,6 +16,8 @@ var AppActions = {
     }
 }
 
+window.AppActions = AppActions
+
 export default AppActions
 
 

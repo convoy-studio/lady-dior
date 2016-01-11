@@ -3,6 +3,7 @@ import BaseComponent from 'BaseComponent'
 import AppStore from 'AppStore'
 import AppConstants from 'AppConstants'
 import Menu from 'Menu'
+import Router from 'Router'
 
 export default class FrontContainer extends BaseComponent {
 	constructor(props) {
@@ -14,11 +15,15 @@ export default class FrontContainer extends BaseComponent {
 	render() {
 		return (
 			<div id='front-container' ref='front-container'>
-				<Menu />
+				<Menu ref='menu' />
 			</div>
 		)
 	}
 	didHasherChange() {
-		// Update or highlight parts of interface depends the route
+		var item = AppStore.getCurrentPageMenuItem()
+		this.refs['menu'].highlightByItem(item)
+	}
+	resize() {
+		this.refs['menu'].resize()
 	}
 }

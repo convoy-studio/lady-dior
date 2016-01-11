@@ -31,12 +31,14 @@ function _getCurrentPageMenuItem() {
     var id = hashObj.hash == '' ? 'home' : hashObj.hash
 
     var menuItems = AppStore.Data.menu
+    var item;
     for (var i = 0; i < menuItems.length; i++) {
         if(menuItems[i].id == id) {
-            return menuItems[i]
+            item = menuItems[i]
         }
     };
     
+    return (item == undefined) ? { id: 'home' } : item
 }
 function _getAppData() {
     return AppStore.Data
@@ -103,7 +105,7 @@ var AppStore = assign({}, EventEmitter2.prototype, {
     })
 })
 
-
+window.AppStore = AppStore
 
 export default AppStore
 
