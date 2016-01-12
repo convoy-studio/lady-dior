@@ -76,6 +76,11 @@ export default class BasePager extends React.Component {
 			React.unmountComponentAtNode(domToRemove)
 		}
 	}
+	update() {
+		if(this.components['new-component'] != undefined) {
+			this.components['new-component'].update()
+		}
+	}
 	resize() {
 		if(this.components['new-component'] != undefined) {
 			this.components['new-component'].resize()

@@ -47,9 +47,6 @@ html {
     @extend .full;
     position: absolute;
 
-    .canvas-holder {
-
-    }
     .elements-holder {
         @extend .full;
         position: absolute;
@@ -57,4 +54,9 @@ html {
         top: 0;
         left: 0;
     }
+}
+
+.canvas-holder {
+    position: absolute;
+    @extend .top-left;
 }

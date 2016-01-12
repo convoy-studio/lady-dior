@@ -13,6 +13,18 @@ var AppActions = {
             actionType: AppConstants.WINDOW_RESIZE,
             item: { windowW:windowW, windowH:windowH }
         })
+    },
+    addPXChild: function(child) {
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.ADD_PX_CHILD,
+            item: { child:child }
+        })    
+    },
+    removePXChild: function(child) {
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.REMOVE_PX_CHILD,
+            item: { child:child }
+        })    
     }
 }
 

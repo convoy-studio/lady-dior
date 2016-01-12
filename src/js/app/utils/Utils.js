@@ -31,6 +31,21 @@ class Utils {
 		
 		return css
 	}
+	static DestroyVideo(video) {
+        video.pause();
+        video.src = '';
+        var children = video.childNodes
+        for (var i = 0; i < children.length; i++) {
+        	var child = children[i]
+        	child.setAttribute('src', '');
+        	// Working with a polyfill or use jquery
+        	child.remove()
+        }
+    }
+    static DestroyVideoTexture(texture) {
+    	var video = texture.baseTexture.source
+        Utils.DestroyVideo(video)
+    }
 }
 
 export default Utils
