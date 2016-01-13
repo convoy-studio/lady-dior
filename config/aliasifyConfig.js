@@ -22,6 +22,7 @@ module.exports = {
 		allPathStr += "}"
 		var obj = JSON.parse(allPathStr)
 		this.aliases = obj
+		this.aliases.Data = './www/data/data.json'
 		console.log('Aliases created.')
 	},
 	aliases: "",

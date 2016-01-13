@@ -15,6 +15,15 @@ var Helpers = {
             var child = children[i]
             container.removeChild(child)
         };
+    },
+
+    getFrameImagesArray: function(frames, baseurl, ext) {
+        var array = []
+        for (var i = 0; i <= frames; i++) {
+            var url = baseurl + i + '.' + ext
+            array[i] = url
+        };
+        return array
     }
 
 }

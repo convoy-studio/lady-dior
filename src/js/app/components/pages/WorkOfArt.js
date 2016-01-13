@@ -10,12 +10,11 @@ export default class WorkOfArt extends Page {
 	}
 	render() {
 
-		var html = (
+		return this.getBasePageDom(
 			<div>
+
 			</div>
 		)
-
-		return this.getBasePageDom(html)
 
 	}
 	componentDidMount() {

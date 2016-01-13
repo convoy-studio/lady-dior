@@ -5,10 +5,10 @@ import React from 'react'
 import Router from 'Router'
 import GEvents from 'GlobalEvents'
 import Preload from 'Preloader'
+import Data from 'Data'
 
 class App {
 	constructor() {
-		this.onMainDataLoaded = this.onMainDataLoaded.bind(this)
 	}
 	init() {
 
@@ -16,14 +16,12 @@ class App {
 		window.GlobalEvents = new GEvents()
 		GlobalEvents.init()
 
-		window.Preloader = new Preload()
-		Preloader.load({id:'main-data', src: 'data/data.json'}, this.onMainDataLoaded)
-		
+		this.onMainDataLoaded()
 	}
 
 	onMainDataLoaded() {
 
-		AppStore.Data = Preloader.getContentById('main-data')
+		AppStore.Data = Data
 		
 		// Init router
 		var router = new Router()

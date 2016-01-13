@@ -1,2 +1,34 @@
 #architecture-page {
+
+	.inside-wrapper {
+	}
+	
+	.videos-container {
+		width: 100%;
+		max-width: 960px;
+		background-color: red;
+		margin: 0 auto;
+	}
+	.video-item {
+		color: white;
+		font-family: CenturyGothic;
+		font-size: 16px;
+		letter-spacing: 0.6px;
+		line-height: 20px;
+		text-align: center;
+		width: 40%;
+		&.left {
+			float: left;
+		}
+		&.right {
+			float: right;
+		}
+		.title {
+			margin: 40px 0;
+		}
+		.description {
+			margin: 40px 0;
+		}
+	}
+
 }

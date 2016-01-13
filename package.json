@@ -68,7 +68,8 @@
     "react-mixin": "^1.4.0",
     "reactify": "^1.1.1",
     "require-globify": "^1.2.1",
-    "siblings": "^1.0.1"
+    "siblings": "^1.0.1",
+    "simple-scrolltop": "^1.0.1"
   },
   "repository": {
     "type": "git",

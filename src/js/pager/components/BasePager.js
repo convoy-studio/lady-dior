@@ -55,12 +55,10 @@ export default class BasePager extends React.Component {
 		this.components['old-component'].willTransitionOut()
 	}
 	didPageTransitionInComplete() {
-		// console.log('didPageTransitionInComplete')
 		PagerActions.pageTransitionDidFinish()
 		this.unmountComponent('old-component')
 	}
 	didPageTransitionOutComplete() {
-		// console.log('didPageTransitionOutComplete')
 		PagerActions.onTransitionOutComplete()
 	}
 	switchPagesDivIndex() {

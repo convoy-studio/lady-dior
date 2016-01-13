@@ -42,7 +42,57 @@
 			"title": "work-of-art page"
 		},
 		"architecture": {
-			"title": "architecture page"
+			"title": "architecture page",
+			"videos": [
+				{
+					"title": "LA FORME",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES.",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				},
+				{
+					"title": "LA FORME 2",
+					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"filename": "Dior",
+					"imgname": "screen-a.jpg"
+				}
+			]
         },
         "quintessentially": {
         	"title": "quintessentially page"

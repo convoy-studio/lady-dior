@@ -16,30 +16,24 @@ export default class BasePage extends React.Component {
 		super.render()
 	}
 	componentWillMount() {
+		this.container = new PIXI.Container()
 	}
 	componentDidMount() {
-		this.parent = React.findDOMNode(this.refs['page-wrapper'])
 		this.resize()
 		this.setupAnimations()
 		setTimeout(() => this.props.isReady(this.props.hash), 0)
 	}
 	setupAnimations() {
-
-		// transition In
-		this.tlIn.from(this.parent, 1, { opacity:0, ease:Expo.easeInOut })
-
-		// transition Out
-		this.tlOut.to(this.parent, 1, { opacity:0, ease:Expo.easeInOut })
-
 		// reset
 		this.tlIn.pause(0)
 		this.tlOut.pause(0)
 	}
 	willTransitionIn() {
-		this.tlIn.play(0)
+		this.tlIn.timeScale(2).play(0)
 	}
 	willTransitionOut() {
-		this.tlOut.play(0)
+		this.tlIn.pause()
+		this.tlOut.timeScale(2).play(0)
 	}
 	didTransitionInComplete() {
 		setTimeout(() => this.props.didTransitionInComplete(), 0)

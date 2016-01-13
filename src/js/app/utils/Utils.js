@@ -26,7 +26,8 @@ class Utils {
 			width: newW,
 			height: newH,
 			left: (windowW >> 1) - (newW >> 1),
-			top: (windowH >> 1) - (newH >> 1)
+			top: (windowH >> 1) - (newH >> 1),
+			scale: scale
 		}
 		
 		return css
@@ -46,6 +47,9 @@ class Utils {
     	var video = texture.baseTexture.source
         Utils.DestroyVideo(video)
     }
+    static IsEven(n) {
+	   return n % 2 == 0;
+	}
 }
 
 export default Utils

@@ -89,3 +89,38 @@ a {
     color: $white;
     text-decoration: none;
 }
+.page-wrapper {
+    @extend .full;
+    position: absolute;
+    .elements-holder {
+        @extend .top-left;
+        @extend .full;
+        position: absolute;
+        z-index: 2;
+        & > div {
+            @extend .full;
+        }
+    }
+    .intro-slide {
+        @extend .full;
+        @extend .top-left;
+        position: fixed;
+        z-index: 3;
+        .front-holder {
+            position: absolute;
+            z-index: 1;
+            .title {
+                text-transform: uppercase;
+                font-family: CenturyGothic;
+                font-size: 28px;
+                letter-spacing: 0.34px;
+                line-height: 34px;
+            }
+        }
+        .background {
+            @extend .full;
+            position: absolute;
+            background-color: white;
+        }
+    }
+}
