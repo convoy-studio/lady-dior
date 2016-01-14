@@ -6,4 +6,5 @@ preprod
 components/*
 www/video/*
 www/image/bag-sequence/*
+www/image/threesixty/*
 npm-debug.log

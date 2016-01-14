@@ -16,6 +16,11 @@ class App {
 		window.GlobalEvents = new GEvents()
 		GlobalEvents.init()
 
+		if ('scrollRestoration' in history) {
+			// Back off, browser, I got this...
+			history.scrollRestoration = 'manual';
+		}
+
 		this.onMainDataLoaded()
 	}
 

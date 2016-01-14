@@ -5,6 +5,7 @@ import AppConstants from 'AppConstants'
 import dom from 'domquery'
 import Helpers from 'Helpers'
 import size from 'element-size'
+import scrolltop from 'simple-scrolltop'
 
 export default class Page extends BasePage {
 	constructor(props) {
@@ -20,8 +21,14 @@ export default class Page extends BasePage {
 		this.elementsHolder = dom(this.parent).select('.elements-holder')[0]
 		this.introSlide = dom(this.parent).select('.intro-slide')[0]
 		this.frontHolder = dom(this.introSlide).select('.front-holder')[0]
-
+		
 		super.componentDidMount()
+	}
+	willTransitionIn() {
+		setTimeout(()=>{
+			scrolltop(0)
+		}, 1000)
+		super.willTransitionIn()
 	}
 	setupAnimations() {
 		// transition In

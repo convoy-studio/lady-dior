@@ -12,7 +12,7 @@ export default class Architecture extends Page {
 	constructor(props) {
 		super(props)
 
-		this.pageHeight = 1000
+		this.pageHeight = 0
 		this.currentScrollPos = 0
 	}
 	render() {
@@ -67,6 +67,22 @@ export default class Architecture extends Page {
 
 		super.componentDidMount()
 	}
+	updateParallaxItems() {
+		var windowH = AppStore.Window.h
+		var relativeY = this.currentScrollPos / this.pageHeight
+		for (var i = 0; i < this.videoItems.length; i++) {
+			var item = this.videoItems[i]
+			if(item.y == undefined) return
+			var posY = this.pos(0, -1000, relativeY, 0)
+            TweenMax.set(item.el, { y:posY, force3D:true })
+		};
+	}
+	pos(base, range, relY, offset) {
+		return base + this.limit(0, 1, relY - offset) * range;
+	}
+	limit(min, max, value) {
+		return Math.max(min, Math.min(max, value));
+	}
 	update() {
 		var windowH = AppStore.Window.h
 	    
@@ -74,8 +90,12 @@ export default class Architecture extends Page {
 	    this.currentScrollPos = scrolltop()
 
 	    // update mc current frame
-	    var currentFrame = Math.floor( ( this.currentScrollPos / ( this.pageHeight + windowH ) ) * this.bg.totalFrames )
+	    var currentFrame = Math.floor( ( this.currentScrollPos / this.pageHeight ) * this.bg.totalFrames )
+	    if(currentFrame > this.bg.totalFrames) currentFrame = this.bg.totalFrames
+	    if(currentFrame < 0) currentFrame = 0
 	    this.bg.mc.gotoAndStop(currentFrame)
+
+	    // this.updateParallaxItems()
 
 		super.update()
 	}
@@ -89,12 +109,21 @@ export default class Architecture extends Page {
 		this.bg.mc.y = windowH >> 1
 		this.bg.mc.scale.x = this.bg.mc.scale.y = resizeVals.scale
 
-		this.pageHeight = 0
-		for (var i = 0; i < this.videoItems.length; i++) {
-			var item = this.videoItems[i]
-			var h = item.el.clientHeight
-			this.pageHeight += h
-		};
+		setTimeout(()=>{
+			this.pageHeight = 0
+			var scrollt = scrolltop()
+			for (var i = 0; i < this.videoItems.length; i++) {
+				var item = this.videoItems[i]
+				var itemSize = size(item.el)
+				var h = itemSize[1]
+				item.size = itemSize
+				item.top = item.el.getBoundingClientRect().top
+				item.top += scrollt
+				item.y = 0
+				this.pageHeight += h
+			};
+			this.pageHeight -= windowH
+		}, 0)
 
 		super.resize()
 	}

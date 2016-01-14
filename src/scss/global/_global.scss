@@ -10,7 +10,7 @@ html, body {
 html {
     @extend .full;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 #app-container  {
