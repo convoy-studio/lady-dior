@@ -24,6 +24,52 @@ var Helpers = {
             array[i] = url
         };
         return array
+    }, 
+
+    getGravityCircle: function(url, radius) {
+        var container = new PIXI.Container()
+        
+        var sprite = new PIXI.Sprite.fromImage(url)
+        sprite.anchor.x = sprite.anchor.y = 0.5
+
+        var mask = new PIXI.Graphics()
+        mask.beginFill(0x000000, 1)
+        mask.drawCircle(0, 0, radius)
+        mask.endFill()
+
+        sprite.mask = mask
+        
+        container.addChild(sprite)
+        container.addChild(mask)
+
+        return {
+            container: container,
+            sprite: sprite,
+            mask: mask
+        }
+    }, 
+
+    getGravityRect: function(url, width, height) {
+       var container = new PIXI.Container()
+        
+        var sprite = new PIXI.Sprite.fromImage(url)
+        sprite.anchor.x = sprite.anchor.y = 0.5
+
+        var mask = new PIXI.Graphics()
+        mask.beginFill(0x000000, 1)
+        mask.drawRect(-width / 2, -height / 2, width, height)
+        mask.endFill()
+
+        sprite.mask = mask
+        
+        container.addChild(sprite)
+        container.addChild(mask)
+
+        return {
+            container: container,
+            sprite: sprite,
+            mask: mask
+        } 
     }
 
 }

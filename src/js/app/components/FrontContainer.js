@@ -50,7 +50,8 @@ export default class FrontContainer extends BaseComponent {
 
 		setTimeout(()=>{ dom(this.beginSlide).addClass('transition-in') }, 1000)
 		setTimeout(()=>{ dom(this.beginSlide).removeClass('transition-in'); dom(this.beginSlide).addClass('transition-out'); }, 4000)
-		setTimeout(()=>{ AppActions.introFinished() }, 5000)
+		// setTimeout(()=>{ AppActions.introFinished() }, 5000)
+		setTimeout(()=>{ AppActions.introFinished() }, 500)
 
 	}
 	didHasherChange() {
