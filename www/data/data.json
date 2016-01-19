@@ -5,29 +5,33 @@
 
 	"menu": [
 		{
-			"id": "work-of-art",
-			"name": "Work of Art",
-			"url": "/work-of-art",
+			"id": "quintaessence",
+			"name": "Quintaessence",
+			"url": "/quintaessence",
 			"latin-num": "I"
-		},{
+		},
+		{
 			"id": "architecture",
 			"name": "Architecture",
 			"url": "/architecture",
 			"latin-num": "II"
-		},{
-			"id": "quintessentially",
-			"name": "Quintessentially Dior",
-			"url": "/quintessentially",
+		},
+		{
+			"id": "creativity-innovation",
+			"name": "Creativity & Innovation",
+			"url": "/creativity-innovation",
 			"latin-num": "III"
-		},{
-			"id": "eclectic",
-			"name": "Eclectic",
-			"url": "/eclectic",
+		},
+		{
+			"id": "style",
+			"name": "Style",
+			"url": "/style",
 			"latin-num": "IV"
-		},{
-			"id": "stylish",
-			"name": "Stylish",
-			"url": "/stylish",
+		},
+		{
+			"id": "inspiration-spark",
+			"name": "Inspiration Spark",
+			"url": "/inspiration-spark",
 			"latin-num": "V"
 		}
 	],
@@ -38,70 +42,75 @@
 		"/": {
 			"title": "home page"
 		},
-		"work-of-art": {
-			"title": "work-of-art page"
+		"inspiration-spark": {
+			"title": "inspiration-spark page"
 		},
 		"architecture": {
 			"title": "architecture page",
 			"videos": [
 				{
-					"title": "LA FORME",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES.",
+					"title": "THE LINE",
+					"description": "Lady Dior is an architectural construction.<br/>Its beauty lies, at the beginning, on its “lines”,<br/>its proportions and ideal dimensions.<br/>The line creates the shape...<br/>In all it takes 144 separate parts to make each Lady Dior.<br/><br/>The shape gives live to the material.",
 					"filename": "Dior",
 					"imgname": "screen-a.jpg"
 				},
 				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"title": "THE MATERIAL",
+					"description": "The leather must be perfect.<br/>It all begins with the selection which must meet specially demanding criteria, always following the same ritual : touching, examining, seeing...<br/>The craftman’s hands and eyes are trained to detect the minor flaw.<br/><br/>The leather is then cut, following the patterns.<br/>After the canning stitching, the parts are ready to create the volume.",
 					"filename": "Dior",
 					"imgname": "screen-a.jpg"
 				},
 				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"title": "THE VOLUME",
+					"description": "Lady Dior is assembled around a wooden form.<br/>The task is is an especially difficult one, as the canning has to align perfectly.<br/><br/>The front, back and sides are reinforced to guaranty that the bag will maintain its shape, preventing it from buckling.",
 					"filename": "Dior",
 					"imgname": "screen-a.jpg"
 				},
 				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
-					"filename": "Dior",
-					"imgname": "screen-a.jpg"
-				},
-				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
-					"filename": "Dior",
-					"imgname": "screen-a.jpg"
-				},
-				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
-					"filename": "Dior",
-					"imgname": "screen-a.jpg"
-				},
-				{
-					"title": "LA FORME 2",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
-					"filename": "Dior",
-					"imgname": "screen-a.jpg"
-				},
-				{
-					"title": "LA FORME 5",
-					"description": "LA LIGNE CRÉE LA FORME. POUR CONSTRUIRE UN SAC LADY DIOR, 130 PIÈCES SONT NÉCESSAIRES. 2",
+					"title": "THE DETAIL",
+					"description": "Metalwork strengthen and accessorize the bag: charms, zipper, grommets or base studs...<br/>This is the Dior signature, making each detail an indespensable part of the beauty of the whole.<br/><br/>Lady Dior carries within it the very spirit of Dior...",
 					"filename": "Dior",
 					"imgname": "screen-a.jpg"
 				}
 			]
         },
-        "quintessentially": {
-        	"title": "quintessentially page"
+        "quintaessence": {
+        	"title": "quintaessence page"
         },
-        "eclectic": {
-        	"title": "eclectic page"
+        "creativity-innovation": {
+        	"title": "CREATIVITY & INNOVATION page"
         },
-        "stylish": {
-        	"title": "stylish page"
+        "style": {
+        	"title": "style page",
+        	"images": [
+        		"_1240018.jpg",
+				"0.jpg",
+				"1.jpg",
+				"3.jpg",
+				"3.mubi.jpg",
+				"4.jpg",
+				"004-Mubi-HD-3-042.jpg",
+				"5.-ballroom.jpg",
+				"8.campergem.jpg",
+				"11-KENZO-SS-FINAL-A-S-2.jpg",
+				"17.dior.jpg",
+				"18.hermes.jpg",
+				"21.dior.jpg",
+				"catcher_rose.png",
+				"Images_test_client_02.jpg",
+				"large-1.jpg",
+				"large.jpg",
+				"push_harder_0006.png",
+				"Scratcher.png",
+				"Screen-Shot-2015-12-04-at-17.14.41.jpg",
+				"Screen-Shot-2015-12-04-at-17.17.06.jpg",
+				"16.camper.jpg",
+				"thumbnail-23.jpg",
+				"thumbnail-32.jpg",
+				"Visual-2---Convoy.jpg",
+				"Visual-3---Convoy.jpg",
+				"11.camper.jpg"
+			]
         }
 	}
 }

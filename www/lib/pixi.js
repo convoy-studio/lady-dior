@@ -17145,10 +17145,10 @@ BaseTexture.fromImage = function (imageUrl, crossorigin, scaleMode)
         // new Image() breaks tex loading in some versions of Chrome.
         // See https://code.google.com/p/chromium/issues/detail?id=238071
         var image = new Image();//document.createElement('img');
-        if (crossorigin)
-        {
-            image.crossOrigin = '';
-        }
+        // if (crossorigin)
+        // {
+        //     image.crossOrigin = '';
+        // }
 
         baseTexture = new BaseTexture(image, scaleMode);
         baseTexture.imageUrl = imageUrl;

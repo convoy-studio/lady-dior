@@ -29,10 +29,11 @@ export default class BasePage extends React.Component {
 		this.tlOut.pause(0)
 	}
 	willTransitionIn() {
+		this.tlOut.pause(0)
 		this.tlIn.timeScale(2).play(0)
 	}
 	willTransitionOut() {
-		this.tlIn.pause()
+		this.tlIn.pause(0)
 		this.tlOut.timeScale(2).play(0)
 	}
 	didTransitionInComplete() {

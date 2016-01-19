@@ -50,6 +50,38 @@ class Utils {
     static IsEven(n) {
 	   return n % 2 == 0;
 	}
+	static Rand(min, max, decimals) {
+        var randomNum = Math.random() * (max - min) + min
+        if(decimals == undefined) {
+        	return randomNum
+        }else{
+	        var d = Math.pow(10, decimals)
+	        return ~~((d * randomNum) + 0.5) / d
+        }
+	}
+	static TranformArrayFromMiddleAndOut(array) {
+        var newArray = []
+        var i = Math.ceil(array.length/2)
+        var j = i - 1
+        while(j >= 0) {
+        	newArray.push(array[j--])
+            if(i < array.length) {
+            	newArray.push(array[i++])
+            }
+        }
+        return newArray
+    }
+    static Set(element, vars, animationClass) {
+		animationClass = animationClass || 'animate'
+		dom(element).removeClass(animationClass)
+		TweenLite.set(element, vars)
+	}
+	static Animate(element, vars, animationClass) {
+		animationClass = animationClass || 'animate'
+		dom(element).addClass(animationClass)
+		vars['force3D'] = true
+		TweenLite.set(element, vars)
+	}
 }
 
 export default Utils

@@ -4,18 +4,17 @@ import AppStore from 'AppStore'
 import dom from 'domquery'
 import AppConstants from 'AppConstants'
 
-export default class Stylish extends Page {
+export default class InspirationSpark extends Page {
 	constructor(props) {
 		super(props)
 	}
 	render() {
 
-		var html = (
+		return this.getBasePageDom(
 			<div>
+
 			</div>
 		)
-
-		return this.getBasePageDom(html)
 
 	}
 	componentDidMount() {

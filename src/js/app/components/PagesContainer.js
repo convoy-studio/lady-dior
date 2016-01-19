@@ -4,11 +4,11 @@ import AppConstants from 'AppConstants'
 import AppStore from 'AppStore'
 import Router from 'Router'
 import Home from 'Home'
-import WorkOfArt from 'WorkOfArt'
+import InspirationSpark from 'InspirationSpark'
 import Architecture from 'Architecture'
-import Quintessentially from 'Quintessentially'
-import Eclectic from 'Eclectic'
-import Stylish from 'Stylish'
+import Quintaessence from 'Quintaessence'
+import CreativityInnovation from 'CreativityInnovation'
+import Style from 'Style'
 
 export default class PagesContainer extends BasePager {
 	constructor(props) {
@@ -28,20 +28,20 @@ export default class PagesContainer extends BasePager {
 		var type = undefined
 
 		switch(hash.parent) {
-			case 'work-of-art':
-				type = WorkOfArt
+			case 'inspiration-spark':
+				type = InspirationSpark
 				break
 			case 'architecture':
 				type = Architecture
 				break
-			case 'quintessentially':
-				type = Quintessentially
+			case 'quintaessence':
+				type = Quintaessence
 				break
-			case 'eclectic':
-				type = Eclectic
+			case 'creativity-innovation':
+				type = CreativityInnovation
 				break
-			case 'stylish':
-				type = Stylish
+			case 'style':
+				type = Style
 				break
 			default:
 				type = Home

@@ -4,7 +4,7 @@ import AppStore from 'AppStore'
 import dom from 'domquery'
 import AppConstants from 'AppConstants'
 
-export default class Eclectic extends Page {
+export default class CreativityInnovation extends Page {
 	constructor(props) {
 		super(props)
 	}

@@ -11,12 +11,65 @@
 		$size: 50px;
 		width: $size;
 		height: $size;
-		margin: 0 auto;
+		position: absolute;
+		left: 50%;
 		margin-top: $overallMargin;
+		margin-left: -$size/2;
+		@include anim(.0s, .0s, $easeInOutExpo, translateY(-($overallMargin + 60px)), 50%, 00%);
+		&.transition-in {
+			@include anim(.8s, .0s, $easeInOutExpo, translateY(0px), 50%, 00%);
+		}
+	}
+	.logo:hover {
+		@include anim(.4s, .0s, $easeOutExpo, translateY(3px), 50%, 50%);
+	}
+	.begin-slide {
+		position: absolute;
+		@extend .full;
+		z-index: 2;
+		& > * {
+			position: absolute;
+		}
+		.background {
+			@extend .full;
+			background: white;
+		}
+		.icon {
+			$size: 300px;
+			width: $size;
+			height: $size;
+			z-index: 1;
+			left: 50%;
+			top: 50%;
+			margin-left: -$size/2;
+			margin-top: -$size/3;
+			@include opacity(0);
+			@include anim(.0s, .0s, $easeOutExpo, translateY(-10px), 50%, 50%);
+		}
+		&.transition-in {
+			.icon {
+				@include opacity(1);
+				@include anim(.8s, .0s, $easeOutExpo, translateY(0px), 50%, 50%);
+			}
+		}
+		&.transition-out {
+			.icon {
+				@include opacity(0);
+				@include anim(.8s, .0s, $easeInOutExpo, translateY(10px), 50%, 50%);
+			}
+			.background {
+				@include opacity(0);
+				@include simpleAnim(.8s, .2s, $easeInOutExpo);
+			}
+		}
 	}
 	#menu {
 		width: 90%;
 		position: absolute;
+		@include anim(.0s, .0s, $easeInOutExpo, translateY($overallMargin + 60px), 50%, 00%);
+		&.transition-in {
+			@include anim(.8s, .0s, $easeInOutExpo, translateY(0px), 50%, 00%);
+		}
 		li {
 			width: 20%;
 			@include inline-block;

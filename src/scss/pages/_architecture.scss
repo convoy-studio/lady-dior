@@ -6,8 +6,8 @@
 	.videos-container {
 		width: 100%;
 		max-width: 960px;
-		background-color: red;
 		margin: 0 auto;
+		position: relative;
 	}
 	.video-item {
 		color: white;
@@ -17,18 +17,38 @@
 		line-height: 20px;
 		text-align: center;
 		width: 40%;
-		&.left {
-			float: left;
-		}
-		&.right {
-			float: right;
-		}
+		position: absolute;
+		// &.left {
+		// 	float: left;
+		// }
+		// &.right {
+		// 	// float: right;
+		// }
 		.title {
 			margin: 40px 0;
 		}
 		.description {
 			margin: 40px 0;
 		}
+		.media {
+			@extend .full;
+			height: 200px;
+			position: relative;
+			& > * {
+				position: absolute;
+				@extend .full;
+				@extend .top-left;
+			}
+			// video {
+			// 	@include opacity(0);
+			// 	@include anim(.8s, .6s, $easeOutExpo, scaleY(3), 50%, 0%);
+			// }
+			// &.active {
+			// 	video {
+			// 		@include opacity(1);
+			// 		@include anim(.8s, 1.1s, $easeOutExpo, scaleY(1), 50%, 0%);
+			// 	}
+			// }
+		}
 	}
-
 }

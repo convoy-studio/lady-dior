@@ -34,8 +34,8 @@ export default class Page extends BasePage {
 		// transition In
 		this.tlIn.fromTo(this.introSlide, 1, { opacity:0, ease:Expo.easeInOut }, { opacity:1, ease:Expo.easeInOut }, 0)
 		this.tlIn.to(this.introSlide, 1, { opacity:0, ease:Expo.easeInOut }, 3)
-		this.tlIn.from(this.elementsHolder, 1, { opacity:0, ease:Expo.easeInOut }, 2)
-		this.tlIn.from(this.container, 1, { alpha:0, ease:Expo.easeInOut }, 2)
+		this.tlIn.fromTo(this.elementsHolder, 1, { opacity:0 }, { opacity:1, ease:Expo.easeInOut }, 2)
+		this.tlIn.fromTo(this.container, 1, { alpha:0 }, { alpha:1, ease:Expo.easeInOut }, 2)
 
 		// transition Out
 		this.tlOut.to(this.elementsHolder, 1, { opacity:0, ease:Expo.easeInOut }, 0)
@@ -49,7 +49,9 @@ export default class Page extends BasePage {
 
 		var frontHolder;
 		if(content.id == 'home') {
-			frontHolder = 'home'
+			frontHolder = (
+				<div></div>
+			)
 		}else{
 			frontHolder = <div className='title'>{content.name}</div>
 		}

@@ -25,6 +25,12 @@ var AppActions = {
             actionType: AppConstants.REMOVE_PX_CHILD,
             item: { child:child }
         })    
+    },
+    introFinished: function() {
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.INTRO_FINISHED,
+            item: undefined
+        })    
     }
 }
 

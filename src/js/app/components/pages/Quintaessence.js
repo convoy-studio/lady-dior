@@ -6,7 +6,7 @@ import AppConstants from 'AppConstants'
 import Helpers from 'Helpers'
 import Utils from 'Utils'
 
-export default class Quintessentially extends Page {
+export default class Quintaessence extends Page {
 	constructor(props) {
 		super(props)
 
@@ -80,7 +80,7 @@ export default class Quintessentially extends Page {
 		this.dragVars.direction = ( this.mouse.x > this.dragVars.startPos ) ? 1 : -1
 		var distance = Math.abs(this.mouse.x - this.dragVars.startPos) / windowW
 
-		this.dragVars.force += (7 * this.dragVars.direction) * Math.min(distance, 100)
+		this.dragVars.force += (8 * this.dragVars.direction) * Math.min(distance, 100)
 	}
 	disableDrag() {
 		dom(window).off('mousemove', this.mouseMove)
@@ -89,7 +89,7 @@ export default class Quintessentially extends Page {
 	update() {
 		var windowW = AppStore.Window.w
 
-		this.dragVars.force += (0.000001 - this.dragVars.force) * 0.2
+		this.dragVars.force += (0.000001 - this.dragVars.force) * 0.4
 	    	
 	    // update mc current frame
 	    var newFrame = Math.floor(this.bg.currentFrame + this.dragVars.force)

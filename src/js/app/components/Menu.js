@@ -66,6 +66,9 @@ export default class Menu extends React.Component {
 	removeHighlight() {
 
 	}
+	transitionIn() {
+		dom(this.parent).addClass('transition-in')
+	}
 	resize() {
 		var windowW = AppStore.Window.w
 		var windowH = AppStore.Window.h

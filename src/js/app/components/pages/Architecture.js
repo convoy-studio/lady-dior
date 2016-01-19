@@ -23,18 +23,24 @@ export default class Architecture extends Page {
 			var side = Utils.IsEven(index) ? 'left' : 'right'
 			var classes = 'video-item clear-float ' + side
 			var screenshotPath = 'image/video-screens/' + item.imgname
+			var videoPath = 'video/architecture/' + item.filename
+			var src_mp4 = videoPath + '.mp4'
 			return(
 				<div key={index} className={classes}>
 					<div className="title">{item.title}</div>
-					<div className="screenshot"><img src={screenshotPath} /></div>
-					<div className="description">{item.description}</div>
+					<div className="media">
+						<video width='100%'>
+							<source type='video/mp4' src={src_mp4} autoPlay></source>
+						</video>
+					</div>
+					<div className="description" dangerouslySetInnerHTML={ { __html:item.description } }></div>
 				</div>
 			)
 		})
 
 		return this.getBasePageDom(
 			<div className='inside-wrapper'>
-				<div className="videos-container">
+				<div ref='videos-container' className="videos-container">
 					{videos}
 				</div>
 			</div>
@@ -42,6 +48,8 @@ export default class Architecture extends Page {
 
 	}
 	componentDidMount() {
+
+		this.videosContainer = React.findDOMNode(this.refs['videos-container'])
 
 	    var totalFrames = 159
 	    var bagImages = Helpers.getFrameImagesArray(totalFrames, 'image/bag-sequence/turn_', 'jpg')
@@ -60,28 +68,41 @@ export default class Architecture extends Page {
 	    var items = dom(this.parent).select('.video-item')
 	    for (var i = 0; i < items.length; i++) {
 	    	var item = items[i]
+	    	var video = dom(item).select('video')[0]
 	    	this.videoItems[i] = {
-    			el: item
+    			el: item,
+    			video: video,
+    			mediaEl: dom(item).select('.media')[0],
+    			titleEl: dom(item).select('.title')[0],
+    			descriptionEl: dom(item).select('.description')[0],
+    			isPlaying: false,
+    			index: i
     		}
 	    };
 
-		super.componentDidMount()
+  		super.componentDidMount()
 	}
-	updateParallaxItems() {
+	checkVideosViewportFocus() {
 		var windowH = AppStore.Window.h
-		var relativeY = this.currentScrollPos / this.pageHeight
+		var scrollt = scrolltop()
+		var margin = windowH * 0.1
 		for (var i = 0; i < this.videoItems.length; i++) {
 			var item = this.videoItems[i]
-			if(item.y == undefined) return
-			var posY = this.pos(0, -1000, relativeY, 0)
-            TweenMax.set(item.el, { y:posY, force3D:true })
+			if(scrollt + windowH > item.top + ( margin * 2 ) && scrollt < item.top + item.size[1] - margin) {
+				if(item.isPlaying != true) {
+					item.video.play()
+					item.tl.play(0)
+					item.isPlaying = true
+				}
+			}else{
+				if(item.isPlaying != false) {
+					item.video.pause()
+					item.video.currentTime = 0
+					item.tl.reverse()
+					item.isPlaying = false
+				}
+			}
 		};
-	}
-	pos(base, range, relY, offset) {
-		return base + this.limit(0, 1, relY - offset) * range;
-	}
-	limit(min, max, value) {
-		return Math.max(min, Math.min(max, value));
 	}
 	update() {
 		var windowH = AppStore.Window.h
@@ -95,7 +116,7 @@ export default class Architecture extends Page {
 	    if(currentFrame < 0) currentFrame = 0
 	    this.bg.mc.gotoAndStop(currentFrame)
 
-	    // this.updateParallaxItems()
+	    this.checkVideosViewportFocus()
 
 		super.update()
 	}
@@ -112,17 +133,34 @@ export default class Architecture extends Page {
 		setTimeout(()=>{
 			this.pageHeight = 0
 			var scrollt = scrolltop()
+			var marginTop = 240
+			var marginBottom = 240
 			for (var i = 0; i < this.videoItems.length; i++) {
 				var item = this.videoItems[i]
 				var itemSize = size(item.el)
-				var h = itemSize[1]
+				var h = itemSize[1] + (marginTop + marginBottom)
 				item.size = itemSize
-				item.top = item.el.getBoundingClientRect().top
-				item.top += scrollt
+				item.top = this.pageHeight + marginTop
+				item.el.style.top = (this.pageHeight + marginTop) + 'px'
+				if(dom(item.el).hasClass('right')) item.el.style.left = this.videosContainer.offsetWidth - itemSize[0] + 'px'
 				item.y = 0
+				
+				item.pLines = new SplitText(item.descriptionEl, { type:'lines' }).lines
+				item.titleChars = Utils.TranformArrayFromMiddleAndOut(new SplitText(item.titleEl, { tyle:'chars' }).chars)
+
+				item.tl = new TimelineLite()
+				item.tl.staggerFrom(item.titleChars, 1, { opacity:0, y:20, scaleY:0.8, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.05, 0.3)
+				item.tl.from(item.video, 1, { opacity:0, y:20, scaleY:2, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.5)
+				item.tl.staggerFrom(item.pLines, 1, { opacity:0, y:20, scaleY:0.8, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.05, 0.8)
+				item.tl.pause(0)
+
+				item.isPlaying = false
+
 				this.pageHeight += h
 			};
+			this.videosContainer.style.height = this.pageHeight + 'px'
 			this.pageHeight -= windowH
+
 		}, 0)
 
 		super.resize()
