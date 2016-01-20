@@ -17,26 +17,33 @@ export default class Architecture extends Page {
 	}
 	render() {
 
+		var getMedia = (src)=> {
+			return (
+				<div className="media">
+					<video loop='true' width='100%'>
+						<source type='video/mp4' src={src}></source>
+					</video>
+				</div>
+			)
+		}
+
 		var content = AppStore.pageContent()
 		var videos = content.videos.map((item, index)=>{
-			
 			var side = Utils.IsEven(index) ? 'left' : 'right'
 			var classes = 'video-item clear-float ' + side
 			var screenshotPath = 'image/video-screens/' + item.imgname
 			var videoPath = 'video/architecture/' + item.filename
 			var src_mp4 = videoPath + '.mp4'
+			var media = (item.filename.length < 1) ? '' : getMedia(src_mp4)
 			return(
 				<div key={index} className={classes}>
 					<div className="title">{item.title}</div>
-					<div className="media">
-						<video width='100%'>
-							<source type='video/mp4' src={src_mp4} autoPlay></source>
-						</video>
-					</div>
+					{media}
 					<div className="description" dangerouslySetInnerHTML={ { __html:item.description } }></div>
 				</div>
 			)
 		})
+
 
 		return this.getBasePageDom(
 			<div className='inside-wrapper'>
@@ -51,7 +58,7 @@ export default class Architecture extends Page {
 
 		this.videosContainer = React.findDOMNode(this.refs['videos-container'])
 
-	    var totalFrames = 159
+	    var totalFrames = 266
 	    var bagImages = Helpers.getFrameImagesArray(totalFrames, 'image/bag-sequence/turn_', 'jpg')
 	    var mc = PIXI.extras.MovieClip.fromImages(bagImages)
         mc.anchor.x = 0.5
@@ -90,14 +97,14 @@ export default class Architecture extends Page {
 			var item = this.videoItems[i]
 			if(scrollt + windowH > item.top + ( margin * 2 ) && scrollt < item.top + item.size[1] - margin) {
 				if(item.isPlaying != true) {
-					item.video.play()
+					if(item.video != undefined) item.video.play()
 					item.tl.play(0)
 					item.isPlaying = true
 				}
 			}else{
 				if(item.isPlaying != false) {
-					item.video.pause()
-					item.video.currentTime = 0
+					if(item.video != undefined) item.video.pause()
+					if(item.video != undefined) item.video.currentTime = 0
 					item.tl.reverse()
 					item.isPlaying = false
 				}
@@ -150,7 +157,7 @@ export default class Architecture extends Page {
 
 				item.tl = new TimelineLite()
 				item.tl.staggerFrom(item.titleChars, 1, { opacity:0, y:20, scaleY:0.8, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.05, 0.3)
-				item.tl.from(item.video, 1, { opacity:0, y:20, scaleY:2, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.5)
+				if(item.video != undefined) item.tl.from(item.video, 1, { opacity:0, y:20, scaleY:2, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.5)
 				item.tl.staggerFrom(item.pLines, 1, { opacity:0, y:20, scaleY:0.8, force3D:true, transformOrigin: '50% 0%', ease: Expo.easeOut }, 0.05, 0.8)
 				item.tl.pause(0)
 
@@ -164,6 +171,14 @@ export default class Architecture extends Page {
 		}, 0)
 
 		super.resize()
+	}
+	componentWillUnmount() {
+		super.componentWillUnmount()
+		this.bg.mc.destroy()
+		for (var i = 0; i < this.videoItems.length; i++) {
+			var item = this.videoItems[i]
+			item.tl.clear()
+		};
 	}
 }
 

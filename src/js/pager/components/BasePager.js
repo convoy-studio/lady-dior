@@ -50,6 +50,7 @@ export default class BasePager extends React.Component {
 	willPageTransitionIn() {
 		this.switchPagesDivIndex()
 		this.components['new-component'].willTransitionIn()
+		AppStore.Parent.style.cursor = 'progress'
 	}
 	willPageTransitionOut() {
 		this.components['old-component'].willTransitionOut()
@@ -57,6 +58,7 @@ export default class BasePager extends React.Component {
 	didPageTransitionInComplete() {
 		PagerActions.pageTransitionDidFinish()
 		this.unmountComponent('old-component')
+		AppStore.Parent.style.cursor = 'auto'
 	}
 	didPageTransitionOutComplete() {
 		PagerActions.onTransitionOutComplete()

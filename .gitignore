@@ -5,6 +5,5 @@ deploy
 preprod
 components/*
 www/video/*
-www/image/bag-sequence/*
-www/image/threesixty/*
+www/image/*
 npm-debug.log

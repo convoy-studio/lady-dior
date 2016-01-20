@@ -18,16 +18,10 @@ export default class Home extends Page {
 		)
 	}
 	componentDidMount() {
-		this.videosContainer = new PIXI.Container()
-		this.videoSprites = []
-		var videoUrls = [ 'video/home_a_1_1.mp4', 'video/home_a_1_1.mp4', 'video/home_a_1_1.mp4' ]
-		for (var i = 0; i < 3; i++) {
-			var videoSprt = Helpers.getPXVideo(videoUrls[i], 320, 510)
-			this.videoSprites[i] = videoSprt
-			this.videosContainer.addChild(videoSprt);
-		};
-
-		this.container.addChild(this.videosContainer);
+		
+		this.pxVideo = Helpers.getPXVideo('video/Triptych - 2.mp4', 1920, 1080)
+		this.pxVideo.anchor.x = this.pxVideo.anchor.y = 0.5
+		this.container.addChild(this.pxVideo)
 
 		super.componentDidMount()
 	}
@@ -38,24 +32,24 @@ export default class Home extends Page {
 		var windowW = AppStore.Window.w
 		var windowH = AppStore.Window.h
 
-		var videoH = this.videoSprites[0].height
-		this.videosContainer.size = [ windowW * 0.8, videoH ]
+		setTimeout(()=>{
 
-		this.videosContainer.x = (windowW >> 1) - (this.videosContainer.size[0] >> 1)
-		this.videosContainer.y = (windowH >> 1) - (this.videosContainer.size[1] >> 1) - (windowH * 0.01)
+			var videoViewport = [ windowW * 0.8, windowH * 0.8 ]
+			var resizeVals = Utils.ResizePositionProportionally(videoViewport[0], videoViewport[1], AppConstants.MEDIA_GLOBAL_W, AppConstants.MEDIA_GLOBAL_H)
 
-		this.videoSprites[1].x = (this.videosContainer.size[0] >> 1) - (this.videoSprites[1].width >> 1)
-		this.videoSprites[2].x = this.videosContainer.size[0] - this.videoSprites[1].width
+			this.pxVideo.x = windowW >> 1
+			this.pxVideo.y = ( windowH >> 1 ) - ( windowH * 0.01 )
+			this.pxVideo.scale.x = this.pxVideo.scale.y = resizeVals.scale
+
+		}, 1000)
+
 
 		super.resize()
 	}
 	destroy() {
-		for (var i = 0; i < this.videoSprites.length; i++) {
-			var videoSprt = this.videoSprites[i]
-			this.videosContainer.removeChild(videoSprt)
-			Utils.DestroyVideoTexture(videoSprt.texture)
-			videoSprt.texture.destroy()
-		};
+		this.container.removeChild(this.pxVideo)
+		Utils.DestroyVideoTexture(this.pxVideo.texture)
+		this.pxVideo.texture.destroy()
 	}
 	componentWillUnmount() {
 		this.destroy()

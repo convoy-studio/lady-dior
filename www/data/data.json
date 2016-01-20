@@ -51,25 +51,25 @@
 				{
 					"title": "THE LINE",
 					"description": "Lady Dior is an architectural construction.<br/>Its beauty lies, at the beginning, on its “lines”,<br/>its proportions and ideal dimensions.<br/>The line creates the shape...<br/>In all it takes 144 separate parts to make each Lady Dior.<br/><br/>The shape gives live to the material.",
-					"filename": "Dior",
+					"filename": "",
 					"imgname": "screen-a.jpg"
 				},
 				{
 					"title": "THE MATERIAL",
 					"description": "The leather must be perfect.<br/>It all begins with the selection which must meet specially demanding criteria, always following the same ritual : touching, examining, seeing...<br/>The craftman’s hands and eyes are trained to detect the minor flaw.<br/><br/>The leather is then cut, following the patterns.<br/>After the canning stitching, the parts are ready to create the volume.",
-					"filename": "Dior",
+					"filename": "25_LADYDIOR_Decoupe_des_Cuirs_15sec_DEF_H264_1",
 					"imgname": "screen-a.jpg"
 				},
 				{
 					"title": "THE VOLUME",
 					"description": "Lady Dior is assembled around a wooden form.<br/>The task is is an especially difficult one, as the canning has to align perfectly.<br/><br/>The front, back and sides are reinforced to guaranty that the bag will maintain its shape, preventing it from buckling.",
-					"filename": "Dior",
+					"filename": "26_LADYDIOR_Mise_en_forme_15sec_DEF_H264_1",
 					"imgname": "screen-a.jpg"
 				},
 				{
 					"title": "THE DETAIL",
 					"description": "Metalwork strengthen and accessorize the bag: charms, zipper, grommets or base studs...<br/>This is the Dior signature, making each detail an indespensable part of the beauty of the whole.<br/><br/>Lady Dior carries within it the very spirit of Dior...",
-					"filename": "Dior",
+					"filename": "27_LADYDIOR_Pose_des_bijouteries_15sec_DEF_H264_1",
 					"imgname": "screen-a.jpg"
 				}
 			]
@@ -83,33 +83,31 @@
         "style": {
         	"title": "style page",
         	"images": [
-        		"_1240018.jpg",
-				"0.jpg",
-				"1.jpg",
-				"3.jpg",
-				"3.mubi.jpg",
-				"4.jpg",
-				"004-Mubi-HD-3-042.jpg",
-				"5.-ballroom.jpg",
-				"8.campergem.jpg",
-				"11-KENZO-SS-FINAL-A-S-2.jpg",
-				"17.dior.jpg",
-				"18.hermes.jpg",
-				"21.dior.jpg",
-				"catcher_rose.png",
-				"Images_test_client_02.jpg",
-				"large-1.jpg",
-				"large.jpg",
-				"push_harder_0006.png",
-				"Scratcher.png",
-				"Screen-Shot-2015-12-04-at-17.14.41.jpg",
-				"Screen-Shot-2015-12-04-at-17.17.06.jpg",
-				"16.camper.jpg",
-				"thumbnail-23.jpg",
-				"thumbnail-32.jpg",
-				"Visual-2---Convoy.jpg",
-				"Visual-3---Convoy.jpg",
-				"11.camper.jpg"
+        		"2a3c5ce0884577ba6d7fcce3cfe8fb68.jpg",
+        		"3bd979c25d3c67f756698ac50cb9a576.jpg",
+        		"05e222214085460ebc905c79de468dc7.jpg",
+        		"7efc9dbcafb70dbab3e3e19da351e331.jpg",
+        		"9d53a4c5457c4d76c39177406302a287.jpg",
+        		"15e37552befd55df3debd681885facdd.jpg",
+        		"32b6208ede3c33beda8a0eedbd8b557a.jpg",
+        		"092b87aeaeaf253610369d3daaff4fe4.jpg",
+        		"112.jpg",
+        		"14838db599dc2d0e6acc3c1578b3cccf.jpg",
+        		"2311612_IMG_0525.jpg",
+        		"4486821_open-uri20150517-7117-ehoqa3.jpg",
+        		"christian-dior-fall-winter-2011-2012-lookbook-9.jpg",
+        		"d49628cb734153b3f0e074bdae4013a5.jpg",
+        		"da97401424531e6a6386168c2acafde2.jpg",
+        		"dc838b3cbfc4a2d8cdf98e95122f2d77.jpg",
+        		"dsc_0829.jpg",
+        		"elizabeth-minett-lady-dior-street-style.jpg",
+        		"IMG_1241-RC-1.jpg",
+        		"IMG_6773.jpg",
+        		"Le-Sac-Lady-Dior-de-Christian-Dior (1).jpg",
+        		"LFW-Day1-AW15-StreetStyle-Natalia-Kaut-BlueDress-Raey-Yellow-Coat-MatchesFashion-MayaWilliams-FashionLollipop-1-1024x682.jpg",
+        		"mod41.jpg",
+        		"p19j5sdr5k41o16ju1mkpd5b1pgbg.jpg",
+        		"tumblr_mzsndmRQHi1su7xieo1_1280.jpg"
 			]
         }
 	}

@@ -74,6 +74,18 @@
 			width: 20%;
 			@include inline-block;
 			text-align: center;
+			&.hovered {
+				.title {
+					@include opacity(1);
+					@include anim(.6s, .0s, $easeOutExpo, translateY(0px), 50%, 100%);	
+				}	
+			}
+			&.hovered-home {
+				.latin-num {
+					@include opacity(0);
+					@include anim(.5s, .0s, $easeOutExpo, translateY(-10px), 50%, 100%);
+				}
+			}
 			a {
 				position: relative;
 				width: 100%;
@@ -85,7 +97,7 @@
 			.title {
 				margin-top: 8px;
 				@include opacity(1);
-				@include anim(.6s, .0s, $easeOutExpo, translateY(0px), 50%, 100%);	
+				@include anim(.6s, .0s, $easeOutExpo, scaleY(1), 50%, 100%);	
 			}
 			.line {
 				width: 100%;
@@ -97,7 +109,7 @@
 				left: 0;
 	
 				@include opacity(0);
-				@include simpleAnim(.6s, .0s, $easeOutExpo);	
+				@include anim(.6s, .0s, $easeOutExpo, scaleX(0), 50%, 50%);
 			}
 
 			&.enable {
@@ -108,11 +120,11 @@
 				}
 				.title {
 					@include opacity(0);
-					@include anim(.6s, .0s, $easeOutExpo, translateY(4px), 50%, 100%);	
+					@include anim(.6s, .0s, $easeOutExpo, scaleY(1), 50%, 100%);	
 				}
 				.line {
 					@include opacity(1);
-					@include simpleAnim(.6s, .0s, $easeOutSine);
+					@include anim(.6s, .2s, $easeOutExpo, scaleX(1), 50%, 50%);
 				}
 			}
 
@@ -124,11 +136,11 @@
 				}
 				.title {
 					@include opacity(0);
-					@include anim(.6s, .0s, $easeOutExpo, translateY(4px), 50%, 100%);	
+					@include anim(.6s, .0s, $easeOutExpo, scaleY(0), 50%, 100%);	
 				}
 				.line {
 					@include opacity(0.1);
-					@include simpleAnim(.6s, .0s, $easeOutSine);
+					@include anim(.6s, .0s, $easeOutExpo, scaleX(1), 50%, 50%);
 				}
 				
 			}

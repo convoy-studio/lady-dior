@@ -30,13 +30,22 @@ export default class Style extends Page {
 	}
 	componentDidMount() {
 
+		var totalFrames = 266
+	    var bagImages = Helpers.getFrameImagesArray(totalFrames, 'image/bag-turn-light/turn_', 'jpg')
+	    var mc = PIXI.extras.MovieClip.fromImages(bagImages)
+        mc.anchor.x = 0.5
+        mc.anchor.y = 0.5
+	    mc.gotoAndStop(0)
+	    this.container.addChild(mc)
+	    
+	    this.bg = {
+	    	mc: mc,
+	    	totalFrames: totalFrames,
+	    	currentFrame: 0
+	    }
+	    this.bg.mc.play()
+
 		this.imagesContainer = new PIXI.Container()
-		this.bg = new PIXI.Sprite(PIXI.Texture.fromImage('image/bag-static.jpg'))
-
-		this.bg.anchor.x = 0.5
-		this.bg.anchor.y = 0.5
-
-		this.container.addChild(this.bg)
 		this.container.addChild(this.imagesContainer)
 
 		this.intervalId = setInterval(this.removeSprite, 75)
@@ -71,6 +80,7 @@ export default class Style extends Page {
 		sprite.anchor.x = 0.5
 		sprite.anchor.y = 0.5
 		sprite.blendMode = PIXI.BLEND_MODES.MULTIPLY
+		// sprite.blendMode = PIXI.BLEND_MODES.DIFFERENCE
 		container.position.x = this.mouse.x
 		container.position.y = this.mouse.y
 		this.activeSprites.push({
@@ -111,18 +121,18 @@ export default class Style extends Page {
 	resize() {
 		var windowW = AppStore.Window.w
 		var windowH = AppStore.Window.h
-
 		var resizeVals = Utils.ResizePositionProportionally(windowW, windowH, AppConstants.MEDIA_GLOBAL_W, AppConstants.MEDIA_GLOBAL_H)
 
-		this.bg.x = windowW >> 1
-		this.bg.y = windowH >> 1
-		this.bg.scale.x = this.bg.scale.y = resizeVals.scale
+		this.bg.mc.x = windowW >> 1
+		this.bg.mc.y = windowH >> 1
+		this.bg.mc.scale.x = this.bg.mc.scale.y = resizeVals.scale
 
 		super.resize()
 	}
 	componentWillUnmount() {
-		super.componentWillUnmount()	
+		super.componentWillUnmount()
 		Helpers.removeChildrenFromContainer(this.imagesContainer)
+		this.bg.mc.destroy()
 		dom(window).off("mousemove", this.onMouseMove)
 		clearInterval(this.intervalId)
 	}

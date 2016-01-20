@@ -5,12 +5,12 @@
 	
 	.videos-container {
 		width: 100%;
-		max-width: 960px;
+		max-width: 1024px;
 		margin: 0 auto;
 		position: relative;
 	}
 	.video-item {
-		color: white;
+		color: black;
 		font-family: CenturyGothic;
 		font-size: 16px;
 		letter-spacing: 0.6px;
@@ -18,12 +18,6 @@
 		text-align: center;
 		width: 40%;
 		position: absolute;
-		// &.left {
-		// 	float: left;
-		// }
-		// &.right {
-		// 	// float: right;
-		// }
 		.title {
 			margin: 40px 0;
 		}

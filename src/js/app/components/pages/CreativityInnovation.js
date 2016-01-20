@@ -11,8 +11,7 @@ export default class CreativityInnovation extends Page {
 
 		this.time = 0
 		this.debugMode = false
-		this.circles = []
-		this.rects = []
+		this.bodies = []
 
 		this.M = {
 			Engine: Matter.Engine,
@@ -28,6 +27,7 @@ export default class CreativityInnovation extends Page {
 		}
 
 		this.explosion = this.explosion.bind(this)
+		this.onCollision = this.onCollision.bind(this)
 	}
 	render() {
 
@@ -84,7 +84,7 @@ export default class CreativityInnovation extends Page {
 
 			circle.body = c
 
-			this.circles[i] = circle
+			this.bodies.push(circle)
 		}
 
 		var rectW = 200
@@ -100,7 +100,7 @@ export default class CreativityInnovation extends Page {
 
 			rect.body = r
 
-			this.rects[i] = rect
+			this.bodies.push(rect)
 		};
 
 		// Add Walls
@@ -109,21 +109,20 @@ export default class CreativityInnovation extends Page {
 		// run the engine
 		this.M.Engine.run(engine);
 
-		setInterval(this.explosion, 5000)
+		this.intervalId = setInterval(this.explosion, 5000)
 
 		this.explosion()
 
-		// an example of using collisionStart event on an engine
-        this.M.Events.on(engine, 'collisionStart', (event)=> {
-        	console.log('yo')
-            var pairs = event.pairs;
-            for (var i = 0; i < pairs.length; i++) {
-                var pair = pairs[i];
-                console.log(pair.bodyA, pair.bodyB)
-            }
-        })
+        this.M.Events.on(engine, 'collisionStart', this.onCollision)
 
 		super.componentDidMount()
+	}
+	onCollision(event) {
+        var pairs = event.pairs;
+        for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i];
+            // console.log(pair.bodyA, pair.bodyB)
+        }
 	}
 	addWalls() {
 		var windowW = AppStore.Window.w
@@ -132,10 +131,10 @@ export default class CreativityInnovation extends Page {
 		var wallW = windowW
 		var wallH = windowH
 		this.M.World.add(this.engine.world, [
-		  this.M.Bodies.rectangle(0, -size / 2, wallW * 2, size, { isStatic: true }),
-		  this.M.Bodies.rectangle(-size / 2, 0, size, wallH * 2, { isStatic: true }),
-		  this.M.Bodies.rectangle(0, windowH + size / 2, wallW * 2, size, { isStatic: true }),
-		  this.M.Bodies.rectangle(windowW + size / 2, 0, size, wallH * 2, { isStatic: true }),
+			this.M.Bodies.rectangle(0, -size / 2, wallW * 2, size, { isStatic: true }),
+			this.M.Bodies.rectangle(-size / 2, 0, size, wallH * 2, { isStatic: true }),
+			this.M.Bodies.rectangle(0, windowH + size / 2, wallW * 2, size, { isStatic: true }),
+			this.M.Bodies.rectangle(windowW + size / 2, 0, size, wallH * 2, { isStatic: true }),
 		]);
 	}
 	explosion() {
@@ -172,18 +171,11 @@ export default class CreativityInnovation extends Page {
 		this.time += 0.005
 		this.engine.world.gravity.y = Math.sin(this.time) * 0.01
 
-		for (var i = 0; i < this.circles.length; i++) {
-			var circle = this.circles[i]
-			circle.container.x = circle.body.position.x
-			circle.container.y = circle.body.position.y
-			circle.container.rotation = circle.body.angle
-		};
-
-		for (var i = 0; i < this.rects.length; i++) {
-			var rect = this.rects[i]
-			rect.container.x = rect.body.position.x
-			rect.container.y = rect.body.position.y
-			rect.container.rotation = rect.body.angle
+		for (var i = 0; i < this.bodies.length; i++) {
+			var body = this.bodies[i]
+			body.container.x = body.body.position.x
+			body.container.y = body.body.position.y
+			body.container.rotation = body.body.angle
 		};
 
 		super.update()
@@ -201,6 +193,12 @@ export default class CreativityInnovation extends Page {
 		}
 
 		super.resize()
+	}
+	componentWillUnmount() {
+		super.componentWillUnmount()
+		this.M.Events.off(this.engine, 'collisionStart', this.onCollision)
+		this.M.Engine.clear(this.engine)
+		clearInterval(this.intervalId)
 	}
 }
 

@@ -37,7 +37,7 @@ export default class Quintaessence extends Page {
 
 		this.parent = React.findDOMNode(this.refs['page-wrapper'])
 
-		var totalFrames = 159
+		var totalFrames = 266
 	    var bagImages = Helpers.getFrameImagesArray(totalFrames, 'image/threesixty/turn_', 'jpg')
 	    var mc = PIXI.extras.MovieClip.fromImages(bagImages)
         mc.anchor.x = 0.5
@@ -110,6 +110,14 @@ export default class Quintaessence extends Page {
 		this.bg.mc.scale.x = this.bg.mc.scale.y = resizeVals.scale
 
 		super.resize()
+	}
+	componentWillUnmount() {
+		super.componentWillUnmount()
+		this.bg.mc.destroy()
+		dom(this.parent).off('mousedown', this.mouseDown)
+	    dom(this.parent).off('mouseup', this.mouseUp)
+	    dom(document).off('mouseout', this.stageMouseOut)
+	    dom(window).off('mousemove', this.mouseMove)
 	}
 }
 

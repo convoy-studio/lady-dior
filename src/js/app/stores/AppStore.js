@@ -85,6 +85,7 @@ var AppStore = assign({}, EventEmitter2.prototype, {
         return _windowWidthHeight()
     },
     Orientation: AppConstants.LANDSCAPE,
+    Parent: undefined,
     dispatcherIndex: AppDispatcher.register(function(payload){
         var action = payload.action
         switch(action.actionType) {
