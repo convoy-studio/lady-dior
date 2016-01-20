@@ -29,46 +29,34 @@ var Helpers = {
     getGravityCircle: function(url, radius) {
         var container = new PIXI.Container()
         
-        var sprite = new PIXI.Sprite.fromImage(url)
-        sprite.anchor.x = sprite.anchor.y = 0.5
+        var g = new PIXI.Graphics()
+        g.beginFill(0xffffff, 0.1)
+        g.lineStyle(1, 0x000000, 1)
+        g.drawCircle(0, 0, radius)
+        g.endFill()
 
-        var mask = new PIXI.Graphics()
-        mask.beginFill(0x000000, 1)
-        mask.drawCircle(0, 0, radius)
-        mask.endFill()
-
-        sprite.mask = mask
-        
-        container.addChild(sprite)
-        container.addChild(mask)
+        container.addChild(g)
 
         return {
             container: container,
-            sprite: sprite,
-            mask: mask
+            g: g
         }
     }, 
 
     getGravityRect: function(url, width, height) {
        var container = new PIXI.Container()
         
-        var sprite = new PIXI.Sprite.fromImage(url)
-        sprite.anchor.x = sprite.anchor.y = 0.5
+        var g = new PIXI.Graphics()
+        g.beginFill(0xffffff, 0.1)
+        g.lineStyle(1, 0x000000, 1)
+        g.drawRect(-width / 2, -height / 2, width, height)
+        g.endFill()
 
-        var mask = new PIXI.Graphics()
-        mask.beginFill(0x000000, 1)
-        mask.drawRect(-width / 2, -height / 2, width, height)
-        mask.endFill()
-
-        sprite.mask = mask
-        
-        container.addChild(sprite)
-        container.addChild(mask)
+        container.addChild(g)
 
         return {
             container: container,
-            sprite: sprite,
-            mask: mask
+            g: g
         } 
     }
 

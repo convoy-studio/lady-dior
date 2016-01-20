@@ -78,7 +78,11 @@
         	"title": "quintaessence page"
         },
         "creativity-innovation": {
-        	"title": "CREATIVITY & INNOVATION page"
+        	"title": "CREATIVITY & INNOVATION page",
+        	"bagUrls": [
+        		"bag0",
+        		"bag1"
+        	]
         },
         "style": {
         	"title": "style page",

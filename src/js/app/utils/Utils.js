@@ -82,6 +82,23 @@ class Utils {
 		vars['force3D'] = true
 		TweenLite.set(element, vars)
 	}
+	static SpringTo(item, toPosition, index, springConfig) {
+    	var dx = toPosition.x - item.x
+    	var dy = toPosition.y - item.y
+		var angle = Math.atan2(dy, dx)
+		var targetX = toPosition.x - Math.cos(angle) * (springConfig.length * index)
+		var targetY = toPosition.y - Math.sin(angle) * (springConfig.length * index)
+		item.velocity.x += (targetX - item.x) * springConfig.spring
+		item.velocity.y += (targetY - item.y) * springConfig.spring
+		item.velocity.x *= springConfig.friction
+		item.velocity.y *= springConfig.friction
+    }
+    static SpringVal(fromVal, toVal, velocity, angle, friction, spring, length) {
+    	var distance = toVal - fromVal
+		var target = toVal - Math.cos(angle) * length
+		velocity += (target - fromVal) * spring
+		velocity *= friction
+    }
 }
 
 export default Utils

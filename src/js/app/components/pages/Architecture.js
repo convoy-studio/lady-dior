@@ -165,6 +165,7 @@ export default class Architecture extends Page {
 
 				this.pageHeight += h
 			};
+			this.pageHeight += 300
 			this.videosContainer.style.height = this.pageHeight + 'px'
 			this.pageHeight -= windowH
 
