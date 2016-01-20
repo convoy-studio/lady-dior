@@ -79,6 +79,7 @@ export default class Style extends Page {
 		container.addChild(shape)
 		sprite.anchor.x = 0.5
 		sprite.anchor.y = 0.5
+		sprite.scale.x = sprite.scale.y = 0.7
 		sprite.blendMode = PIXI.BLEND_MODES.MULTIPLY
 		// sprite.blendMode = PIXI.BLEND_MODES.DIFFERENCE
 		container.position.x = this.mouse.x

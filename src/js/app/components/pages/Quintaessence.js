@@ -58,14 +58,17 @@ export default class Quintaessence extends Page {
 		super.componentDidMount()
 	}
 	mouseDown(e) {
+		e.preventDefault()
 		dom(window).on('mousemove', this.mouseMove)
 		this.dragVars.active = true
 		this.dragVars.startPos = e.clientX
 	}
-	mouseUp() {
+	mouseUp(e) {
+		e.preventDefault()
 		this.disableDrag()
 	}
 	stageMouseOut(e) {
+		e.preventDefault()
 		e = e ? e : window.event;
         var from = e.relatedTarget || e.toElement;
         if (!from || from.nodeName == "HTML") {
@@ -73,6 +76,7 @@ export default class Quintaessence extends Page {
         }
 	}
 	mouseMove(e) {
+		e.preventDefault()
 		var windowW = AppStore.Window.w
 		this.mouse.x = e.clientX
 		this.mouse.y = e.clientY

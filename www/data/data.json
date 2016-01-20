@@ -43,7 +43,30 @@
 			"title": "home page"
 		},
 		"inspiration-spark": {
-			"title": "inspiration-spark page"
+			"title": "inspiration-spark page",
+			"images": [
+				"1 - LDS04 Mona Oren.jpg",
+				"2 - LDS01 Liu Juan Hua.jpg",
+				"3 - LDS 37 Laerte Ramos.jpg",
+				"4 - LDS 40 Erdal Duman.jpg",
+				"5 - LDS01 Liu Juan Hua.jpg",
+				"6 - LDS07 Gregor Hidebrandt.jpg",
+				"7 - LDS08 Daniel Arsham.jpg",
+				"8 - LDS12 Kowei Nawa.jpg",
+				"9 - LDS13 Marteen Baas.jpg",
+				"10 - LDS17 Marie Christophe.jpg",
+				"11 - LDS18 Wen Fang.jpg",
+				"12 - LDS19 Nicolas Milhe.jpg",
+				"13 - LDS20 Biju Jose.jpg",
+				"14 - LDS24 Kengo Kito.jpg",
+				"15 - LDS27 Susan Hefuna.jpg",
+				"16 - LDS28 Morgane Tschiember.jpg",
+				"17 - LDS36 Brigida Baltar.jpg",
+				"18 - LDS42 Martin & Youle.jpg",
+				"19 - LDS43 Alice Anderson.jpg",
+				"20 - LDS44 Jack Lavender.jpg",
+				"21 - LDS14 Olympia Scarry.jpg"
+			]
 		},
 		"architecture": {
 			"title": "architecture page",

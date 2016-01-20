@@ -246,7 +246,7 @@ export default class CreativityInnovation extends Page {
 		var config = this.bg.springConfig
 		var angle = config.angle
 		var bags = this.bg.bags
-		angle += 0.1
+		config.angle += 0.1
 		for (var i = 0; i < bags.length; i++) {
 			var bag = bags[i]
 			Utils.SpringTo(bag, bag.toPosition, i, config)

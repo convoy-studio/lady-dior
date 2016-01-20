@@ -30,11 +30,11 @@ export default class BasePage extends React.Component {
 	}
 	willTransitionIn() {
 		this.tlOut.pause(0)
-		this.tlIn.timeScale(2).play(0)
+		this.tlIn.timeScale(1.2).play(0)
 	}
 	willTransitionOut() {
 		this.tlIn.pause(0)
-		this.tlOut.timeScale(2).play(0)
+		this.tlOut.timeScale(1.4).play(0)
 	}
 	didTransitionInComplete() {
 		setTimeout(() => this.props.didTransitionInComplete(), 0)
